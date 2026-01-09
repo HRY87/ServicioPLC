@@ -1,76 +1,47 @@
-# Proyecto Servicio PLC
+# Servicio PLC - Worker Service .NET 8.0
 
-Servicio de Windows para lectura automática de datos desde PLCs industriales (Modbus) y almacenamiento en bases de datos SQL Server (local y/o nube).
+Servicio de Windows para lectura automática de PLCs industriales usando **protocolo TCP/IP personalizado** y almacenamiento en SQL Server.
 
-## 📋 Características
+## 🎯 Características
 
+- ✅ **Worker Service .NET 8.0** (no usa .NET Framework)
+- ✅ **Protocolo TCP/IP personalizado** (no Modbus)
 - ✅ Lectura asíncrona de múltiples PLCs en paralelo
 - ✅ Reconexión automática ante fallos
 - ✅ Almacenamiento dual (BD local + nube)
 - ✅ Sistema de eventos y logging robusto
 - ✅ Configuración flexible mediante JSON
-- ✅ Modo consola para desarrollo y debug
-- ✅ Resistente a fallos (no se detiene si falla una BD o PLC)
+- ✅ Modo consola para desarrollo
+- ✅ Resistente a fallos
 
-## 🏗️ Estructura del Proyecto
+## 🚀 Requisitos
 
-```
-ProyectoServicioPLC/
-│
-├── Program.cs                      # Punto de entrada
-├── MiServicio.cs                   # Clase principal del servicio
-│
-├── Configuracion/
-│   ├── appsettings.json            # Configuración del sistema
-│   └── ConfiguracionManager.cs     # Gestor de configuración
-│
-├── Modelos/
-│   └── LecturaPlc.cs               # Modelos de datos
-│
-├── Servicios/
-│   ├── LectorPlc.cs                # Lector individual de PLC
-│   ├── GestorLecturas.cs           # Coordinador de lecturas
-│   └── RepositorioDatos.cs         # Persistencia en BD
-│
-├── Eventos/
-│   └── GestorEventos.cs            # Sistema de eventos
-│
-├── Mensajes/
-│   └── GestorMensajes.cs           # Mensajes en consola
-│
-├── Utilidades/
-│   ├── Logger.cs                   # Sistema de logging
-│   └── Extensiones.cs              # Métodos auxiliares
-│
-├── Instalacion/
-│   └── InstaladorServicio.cs       # Instalador de servicio Windows
-│
-└── Scripts/
-    └── CrearBaseDatos.sql          # Script de creación de BD
+- **.NET 8.0 SDK** ([Descargar](https://dotnet.microsoft.com/download/dotnet/8.0))
+- **SQL Server 2019+** (o compatible)
+- **Visual Studio Code** (recomendado)
+- **PowerShell 5.1+** (para instalación)
+- **Permisos de Administrador** (para instalar servicio)
+
+## 📦 Inicio Rápido
+
+### 1. Configurar Base de Datos
+
+Ejecutar el script SQL:
+
+```sql
+-- Abrir en SSMS y ejecutar
+Scripts/plc_database_script.sql
 ```
 
-## 🚀 Inicio Rápido
+O desde línea de comandos:
 
-### 1. Prerrequisitos
-
-- .NET 8.0 SDK
-- SQL Server 2025 (o compatible)
-- Visual Studio Code
-- Permisos de administrador (para instalar el servicio)
-
-### 2. Configurar Base de Datos
-
-Ejecutar el script SQL en SQL Server Management Studio:
-
-```bash
-sqlcmd -S localhost -i Scripts/CrearBaseDatos.sql
+```powershell
+sqlcmd -S localhost -i Scripts\plc_database_script.sql
 ```
 
-O abrir y ejecutar manualmente el archivo `Scripts/CrearBaseDatos.sql`
+### 2. Configurar appsettings.json
 
-### 3. Configurar appsettings.json
-
-Editar `Configuracion/appsettings.json` con tus datos:
+Editar el archivo `appsettings.json` con tus datos:
 
 ```json
 {
@@ -78,14 +49,14 @@ Editar `Configuracion/appsettings.json` con tus datos:
   "Databases": {
     "Local": {
       "Enabled": true,
-      "ConnectionString": "Server=.;Database=ProduccionLocal;Trusted_Connection=True;TrustServerCertificate=True;"
+      "ConnectionString": "Server=.;Database=ProduccionLocal;Trusted_Connection=True;"
     }
   },
   "Plcs": [
     {
-      "Nombre": "PLC1",
+      "Nombre": "PLC1_Extrusora",
       "Ip": "192.168.0.10",
-      "Puerto": 502,
+      "Puerto": 8000,
       "Id": 1,
       "Habilitada": true
     }
@@ -93,179 +64,277 @@ Editar `Configuracion/appsettings.json` con tus datos:
 }
 ```
 
-### 4. Compilar el Proyecto
+### 3. Probar en Modo Consola (Debug)
 
-```bash
-dotnet build
-```
-
-### 5. Ejecutar en Modo Consola (Debug)
-
-```bash
+```powershell
+# Ejecutar directamente
 dotnet run
+
+# O desde VS Code
+Presionar F5
 ```
 
-O desde VS Code: Presionar `F5`
+### 4. Compilar para Producción
 
-### 6. Instalar como Servicio de Windows
-
-**Ejecutar como Administrador:**
-
-```bash
-# Compilar en modo Release
+```powershell
 dotnet publish -c Release -o publish
+```
 
-# Instalar el servicio
-cd publish
-ProyectoServicioPLC.exe /install
+### 5. Instalar como Servicio de Windows
 
-# Iniciar el servicio
-ProyectoServicioPLC.exe /start
+**IMPORTANTE: Ejecutar PowerShell como Administrador**
 
+```powershell
+cd Scripts
+.\Instalar-WorkerService.ps1
+```
+
+## 🔧 Gestión del Servicio
+
+### Comandos PowerShell
+
+```powershell
 # Ver estado
-ProyectoServicioPLC.exe /status
+Get-Service ServicioPLC
+
+# Iniciar
+Start-Service ServicioPLC
+
+# Detener
+Stop-Service ServicioPLC
+
+# Reiniciar
+Restart-Service ServicioPLC
+
+# Ver detalles
+Get-Service ServicioPLC | Format-List *
 ```
 
-## 🔧 Configuración
+### Desinstalar
 
-### Agregar Nuevos Datos al PLC
-
-1. **En `appsettings.json`** - Agregar el mapeo:
-
-```json
-"MapeosDatos": {
-  "Presion": { "Posicion": 112, "Tipo": "Float", "Descripcion": "Presión del sistema" }
-}
+```powershell
+cd Scripts
+.\Desinstalar-WorkerService.ps1
 ```
 
-2. **En `Modelos/LecturaPlc.cs`** - Agregar la propiedad:
+## 📊 Arquitectura del Protocolo TCP/IP
+
+El servicio usa un **protocolo TCP/IP personalizado** desarrollado específicamente para PLCs Controlplast:
+
+### Estructura del Paquete
+
+```
+Header (38 bytes):
+[0-27]  → Header estándar del protocolo
+[28-29] → Tipo de memoria (0x8DFF = Datos, 0x08FF = Parámetros)
+[30-33] → Dirección de memoria (3 bytes + padding)
+[34-37] → Número de words a leer (2 bytes + padding)
+
+Respuesta:
+[0-32]  → Header de respuesta
+[33+]   → Datos (2 bytes por word)
+```
+
+### Direcciones de Memoria Importantes
+
+| Variable | Dirección | Tipo | Descripción |
+|----------|-----------|------|-------------|
+| Kg/Hora Actual | 800 | Float | Producción actual |
+| Espesor Actual | 802 | Float | Espesor en mm |
+| Velocidad Línea | 810 | Float | m/min |
+| Estado Máquina | 30023 | Word | ON/OFF |
+| Kg Producidos | 30037 | Float | Total producido |
+
+## 🛠️ Personalización
+
+### Agregar Nuevos Datos del PLC
+
+1. **Editar `LectorPlcTcp.cs`** - Agregar lectura en `LeerDatosAsync()`:
+
+```csharp
+lectura.Presion = await LeerFloatAsync(112, cancellationToken) ?? 0;
+```
+
+2. **Editar `Modelos/modelos.cs`** - Agregar propiedad:
 
 ```csharp
 public float Presion { get; set; }
 ```
 
-3. **En `Servicios/RepositorioDatos.cs`** - Agregar el parámetro:
+3. **Editar `RepositorioDatos.cs`** - Agregar parámetro:
 
 ```csharp
 comando.Parameters.AddWithValue("@Presion", lectura.Presion);
 ```
 
-4. **En la BD** - Agregar la columna:
+4. **Ejecutar en SQL Server**:
 
 ```sql
 ALTER TABLE LecturasPLC ADD Presion FLOAT NULL;
 ```
 
-### Configurar Múltiples PLCs
+### Agregar Más PLCs
 
-Simplemente agregar más entradas en el array `Plcs`:
+Simplemente editar `appsettings.json`:
 
 ```json
 "Plcs": [
-  { "Nombre": "PLC1", "Ip": "192.168.0.10", "Puerto": 502, "Id": 1, "Habilitada": true },
-  { "Nombre": "PLC2", "Ip": "192.168.0.11", "Puerto": 502, "Id": 2, "Habilitada": true },
-  { "Nombre": "PLC3", "Ip": "192.168.0.12", "Puerto": 502, "Id": 3, "Habilitada": false }
+  {
+    "Nombre": "PLC1_Extrusora",
+    "Ip": "192.168.0.10",
+    "Puerto": 8000,
+    "Id": 1,
+    "Habilitada": true
+  },
+  {
+    "Nombre": "PLC2_Extrusora",
+    "Ip": "192.168.0.11",
+    "Puerto": 8000,
+    "Id": 2,
+    "Habilitada": true
+  }
 ]
 ```
 
-## 📊 Consultas Útiles SQL
+## 📝 Logs y Monitoreo
 
-### Ver últimas 100 lecturas
+### Archivos de Log
 
-```sql
-SELECT * FROM vw_UltimasLecturas;
+```
+Logs/
+├── servicio_plc.log      # Log técnico detallado
+├── eventos.log           # Eventos del sistema
+└── *.bak                 # Backups automáticos
 ```
 
-### Ver lecturas de un PLC específico
+### Ver Logs en Tiempo Real
 
-```sql
-SELECT TOP 50 * 
-FROM LecturasPLC 
-WHERE PlcId = 1 
-ORDER BY FechaHoraLectura DESC;
+```powershell
+# PowerShell
+Get-Content .\Logs\servicio_plc.log -Wait -Tail 50
+
+# CMD
+tail -f .\Logs\servicio_plc.log
 ```
 
-### Ver eventos del sistema
+### Event Viewer de Windows
 
-```sql
-SELECT TOP 100 * 
-FROM EventosSistema 
-ORDER BY FechaHora DESC;
-```
+```powershell
+# Abrir Event Viewer
+eventvwr.msc
 
-### Limpiar datos antiguos (90 días)
-
-```sql
-EXEC sp_LimpiarDatosAntiguos @DiasAntiguedad = 90;
+# Navegar a:
+Windows Logs > Application > Source: ServicioPLC
 ```
 
 ## 🔍 Troubleshooting
 
 ### El servicio no inicia
 
-- Verificar permisos de administrador
-- Revisar logs en `Logs/servicio_plc.log`
-- Verificar configuración de BD en `appsettings.json`
+1. Verificar logs: `Logs\servicio_plc.log`
+2. Verificar Event Viewer: `eventvwr.msc`
+3. Verificar conexión a BD:
+
+```powershell
+# Probar conexión
+sqlcmd -S localhost -Q "SELECT @@VERSION"
+```
 
 ### No se conecta al PLC
 
-- Verificar IP y puerto en `appsettings.json`
-- Hacer ping al PLC: `ping 192.168.0.10`
-- Revisar firewall
-- Ver eventos en `Logs/eventos.log`
+```powershell
+# Hacer ping
+ping 192.168.0.10
 
-### Error de conexión a BD
+# Probar puerto
+Test-NetConnection -ComputerName 192.168.0.10 -Port 8000
 
-- Verificar connection string
-- Verificar que SQL Server esté corriendo
-- Revisar permisos de la cuenta de servicio
-- El servicio continúa funcionando con la BD disponible
-
-## 📝 Comandos del Servicio
-
-```bash
-# Instalar
-ProyectoServicioPLC.exe /install
-
-# Desinstalar
-ProyectoServicioPLC.exe /uninstall
-
-# Iniciar
-ProyectoServicioPLC.exe /start
-# O: net start ServicioPLC
-
-# Detener
-ProyectoServicioPLC.exe /stop
-# O: net stop ServicioPLC
-
-# Ver estado
-ProyectoServicioPLC.exe /status
-
-# Ayuda
-ProyectoServicioPLC.exe /help
+# Verificar firewall
+Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'True'}
 ```
 
-## 🛠️ Desarrollo
+### Error de permisos en SQL Server
 
-### Agregar Cliente Modbus Real
+```sql
+-- Dar permisos al usuario del servicio (LocalSystem)
+USE ProduccionLocal;
+GO
 
-El proyecto incluye simulación de lectura. Para implementar Modbus real:
-
-1. Descomentar en `.csproj`:
-```xml
-<PackageReference Include="NModbus4" Version="3.0.74" />
+CREATE USER [NT AUTHORITY\SYSTEM] FOR LOGIN [NT AUTHORITY\SYSTEM];
+ALTER ROLE db_datareader ADD MEMBER [NT AUTHORITY\SYSTEM];
+ALTER ROLE db_datawriter ADD MEMBER [NT AUTHORITY\SYSTEM];
+GO
 ```
 
-2. Implementar en `LectorPlc.cs` las secciones marcadas con `// TODO:`
+### Servicio se detiene solo
 
-### Arquitectura Resiliente
+Verificar:
+1. Logs de aplicación
+2. Event Viewer
+3. Conexión a PLCs (timeout)
+4. Memoria disponible del sistema
 
-El servicio está diseñado para NO detenerse ante:
-- ❌ Fallo de un PLC → Continúa con los demás
-- ❌ Fallo de BD local → Usa BD nube
-- ❌ Fallo de BD nube → Usa BD local
-- ❌ Pérdida de red → Reintenta automáticamente
-- ❌ Timeouts → Registra y continúa
+## 📊 Consultas SQL Útiles
+
+```sql
+-- Ver últimas 100 lecturas
+SELECT * FROM vw_UltimasLecturas;
+
+-- Ver lecturas de un PLC específico
+SELECT TOP 50 * 
+FROM LecturasPLC 
+WHERE PlcId = 1 
+ORDER BY FechaHoraLectura DESC;
+
+-- Ver eventos del sistema
+SELECT TOP 100 * 
+FROM EventosSistema 
+ORDER BY FechaHora DESC;
+
+-- Estadísticas de producción
+SELECT 
+    NombrePlc,
+    COUNT(*) as TotalLecturas,
+    AVG(KgHoraActual) as PromedioKgHora,
+    MIN(FechaHoraLectura) as PrimeraLectura,
+    MAX(FechaHoraLectura) as UltimaLectura
+FROM LecturasPLC
+WHERE FechaHoraLectura >= DATEADD(DAY, -1, GETDATE())
+GROUP BY NombrePlc;
+
+-- Limpiar datos antiguos
+EXEC sp_LimpiarDatosAntiguos @DiasAntiguedad = 90;
+```
+
+## 🔄 Actualizar el Servicio
+
+1. Detener el servicio:
+```powershell
+Stop-Service ServicioPLC
+```
+
+2. Reemplazar archivos en `publish\`
+
+3. Iniciar el servicio:
+```powershell
+Start-Service ServicioPLC
+```
+
+O simplemente ejecutar:
+```powershell
+.\Scripts\Instalar-WorkerService.ps1
+```
+
+## 🎯 Diferencias con .NET Framework
+
+| Aspecto | .NET Framework | .NET 8.0 Worker |
+|---------|----------------|-----------------|
+| Clase base | `ServiceBase` | `BackgroundService` |
+| Instalación | `InstallUtil.exe` | `New-Service` PowerShell |
+| NuGet SQL | `System.Data.SqlClient` | `Microsoft.Data.SqlClient` |
+| Hosting | Manual | `IHostBuilder` |
+| Logging | Manual | `ILogger` integrado |
+| DI | Manual | Inyección nativa |
 
 ## 📄 Licencia
 
@@ -273,8 +342,11 @@ El servicio está diseñado para NO detenerse ante:
 
 ## 👤 Autor
 
-[Tu nombre aquí]
+[Tu nombre/empresa]
 
 ---
 
-**Nota:** Este es un proyecto base. Recuerda implementar el cliente Modbus real según tu hardware específico.
+**Nota Importante:** Este servicio usa protocolo TCP/IP personalizado, NO Modbus. El puerto por defecto es 8000, no 502.
+
+**Versión:** 2.0.0 (Worker Service .NET 8.0)  
+**Fecha:** Enero 2026
