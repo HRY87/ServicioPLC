@@ -107,7 +107,7 @@ class MiServicio : ServiceBase {
 }
 ```
 
-#### .NET 8.0 Worker:
+#### .NET 10.0 Worker:
 ```csharp
 class TrabajadorPLC : BackgroundService {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken) {
@@ -127,7 +127,7 @@ var configuracion = ConfiguracionManager.CargarConfiguracion();
 var gestor = new GestorLecturas(configuracion, logger);
 ```
 
-#### .NET 8.0 Worker:
+#### .NET 10.0 Worker:
 ```csharp
 // Automática con IServiceCollection
 services.AddSingleton<Logger>();
@@ -200,7 +200,7 @@ REM 3. Iniciar
 net start ServicioPLC
 ```
 
-### Después (.NET 8.0):
+### Después (.NET 10.0):
 ```powershell
 # 1. Compilar
 dotnet publish -c Release -o publish
