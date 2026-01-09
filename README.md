@@ -1,10 +1,10 @@
-# Servicio PLC - Worker Service .NET 8.0
+# Servicio PLC - Worker Service .NET 10.0
 
 Servicio de Windows para lectura automática de PLCs industriales usando **protocolo TCP/IP personalizado** y almacenamiento en SQL Server.
 
 ## 🎯 Características
 
-- ✅ **Worker Service .NET 8.0** (no usa .NET Framework)
+- ✅ **Worker Service .NET 10.0** (no usa .NET Framework)
 - ✅ **Protocolo TCP/IP personalizado** (no Modbus)
 - ✅ Lectura asíncrona de múltiples PLCs en paralelo
 - ✅ Reconexión automática ante fallos
