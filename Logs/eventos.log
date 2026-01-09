@@ -1,0 +1,32 @@
+﻿[2026-01-09 13:40:59] [INFO] [ServicioIniciado] Servicio PLC Worker iniciado correctamente
+[2026-01-09 13:40:59] [ERROR] [ErrorCritico] Error crítico: Error al cargar la configuración: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+[2026-01-09 13:40:59] [INFO] [ServicioDetenido] Servicio PLC detenido correctamente
+[2026-01-09 13:41:32] [INFO] [ServicioIniciado] Servicio PLC Worker iniciado correctamente
+[2026-01-09 13:41:32] [ERROR] [ErrorCritico] Error crítico: Error al cargar la configuración: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+[2026-01-09 13:41:32] [INFO] [ServicioDetenido] Servicio PLC detenido correctamente
+[2026-01-09 13:43:15] [INFO] [ServicioIniciado] Servicio PLC Worker iniciado correctamente
+[2026-01-09 13:43:15] [ERROR] [BaseDatosError] BD Local no disponible: Login failed for user 'nerdwestNBK2\Hernan.Y'.
+[2026-01-09 13:43:21] [WARN] [PlcDesconectado] [PLC:1] Error al conectar: Timeout al conectar con PLC1_Extrusora
+[2026-01-09 13:43:21] [WARN] [PlcDesconectado] [PLC:1] PLC1_Extrusora desconectado
+[2026-01-09 13:43:21] [WARN] [PlcDesconectado] [PLC:2] Error al conectar: Timeout al conectar con PLC2_Extrusora
+[2026-01-09 13:43:21] [WARN] [PlcDesconectado] [PLC:2] PLC2_Extrusora desconectado
+[2026-01-09 13:43:36] [WARN] [PlcDesconectado] [PLC:1] Error al conectar: Timeout al conectar con PLC1_Extrusora
+[2026-01-09 13:43:36] [WARN] [PlcDesconectado] [PLC:1] PLC1_Extrusora desconectado
+[2026-01-09 13:43:36] [WARN] [PlcDesconectado] [PLC:2] Error al conectar: Timeout al conectar con PLC2_Extrusora
+[2026-01-09 13:43:36] [WARN] [PlcDesconectado] [PLC:2] PLC2_Extrusora desconectado
+[2026-01-09 13:43:37] [WARN] [PlcDesconectado] [PLC:1] PLC1_Extrusora desconectado
+[2026-01-09 13:43:37] [WARN] [PlcDesconectado] [PLC:2] PLC2_Extrusora desconectado
+[2026-01-09 13:43:37] [INFO] [ServicioDetenido] Servicio PLC detenido correctamente
+[2026-01-09 13:45:19] [INFO] [ServicioIniciado] Servicio PLC Worker iniciado correctamente
+[2026-01-09 13:45:19] [ERROR] [BaseDatosError] BD Local no disponible: Login failed for user 'nerdwestNBK2\Hernan.Y'.
+[2026-01-09 13:45:19] [INFO] [PlcConectado] [PLC:2] Extrusora 2 conectado exitosamente
+[2026-01-09 13:45:24] [WARN] [PlcDesconectado] [PLC:1] Error al conectar: Timeout al conectar con Extrusora 1
+[2026-01-09 13:45:24] [WARN] [PlcDesconectado] [PLC:1] Extrusora 1 desconectado
+[2026-01-09 13:45:39] [WARN] [PlcDesconectado] [PLC:1] Error al conectar: Timeout al conectar con Extrusora 1
+[2026-01-09 13:45:39] [WARN] [PlcDesconectado] [PLC:1] Extrusora 1 desconectado
+[2026-01-09 13:45:54] [WARN] [PlcDesconectado] [PLC:1] Error al conectar: Timeout al conectar con Extrusora 1
+[2026-01-09 13:45:54] [WARN] [PlcDesconectado] [PLC:1] Extrusora 1 desconectado
+[2026-01-09 13:45:54] [ERROR] [BaseDatosError] BD Local no disponible: Login failed for user 'nerdwestNBK2\Hernan.Y'.
+[2026-01-09 13:46:48] [WARN] [PlcDesconectado] [PLC:1] Extrusora 1 desconectado
+[2026-01-09 13:46:48] [WARN] [PlcDesconectado] [PLC:2] Extrusora 2 desconectado
+[2026-01-09 13:46:48] [INFO] [ServicioDetenido] Servicio PLC detenido correctamente

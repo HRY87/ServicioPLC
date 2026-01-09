@@ -1,0 +1,206 @@
+﻿[2026-01-09 13:37:00.090] [ERROR] Error crítico al iniciar servicio
+Excepción: AggregateException
+Mensaje: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: PLCServicio.Servicios.GestorLecturas Lifetime: Singleton ImplementationType: PLCServicio.Servicios.GestorLecturas': Unable to resolve service for type 'PLCServicio.Configuracion.ConfiguracionManager' while attempting to activate 'PLCServicio.Servicios.GestorLecturas'.)
+StackTrace:    at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.InitializeServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at PLCServicio.Program.Main(String[] args) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Program.cs:line 17
+InnerException: Error while validating the service descriptor 'ServiceType: PLCServicio.Servicios.GestorLecturas Lifetime: Singleton ImplementationType: PLCServicio.Servicios.GestorLecturas': Unable to resolve service for type 'PLCServicio.Configuracion.ConfiguracionManager' while attempting to activate 'PLCServicio.Servicios.GestorLecturas'.
+[2026-01-09 13:39:37.434] [ERROR] Error crítico al iniciar servicio
+Excepción: AggregateException
+Mensaje: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: PLCServicio.Servicios.GestorLecturas Lifetime: Singleton ImplementationType: PLCServicio.Servicios.GestorLecturas': Unable to resolve service for type 'PLCServicio.Configuracion.ConfiguracionManager' while attempting to activate 'PLCServicio.Servicios.GestorLecturas'.)
+StackTrace:    at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.InitializeServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at PLCServicio.Program.Main(String[] args) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Program.cs:line 17
+InnerException: Error while validating the service descriptor 'ServiceType: PLCServicio.Servicios.GestorLecturas Lifetime: Singleton ImplementationType: PLCServicio.Servicios.GestorLecturas': Unable to resolve service for type 'PLCServicio.Configuracion.ConfiguracionManager' while attempting to activate 'PLCServicio.Servicios.GestorLecturas'.
+[2026-01-09 13:40:59.040] [INFO] === SERVICIO PLC INICIANDO ===
+[2026-01-09 13:40:59.078] [INFO] Cargando configuración del servicio...
+[2026-01-09 13:40:59.137] [ERROR] Error crítico en el servicio
+Excepción: InvalidOperationException
+Mensaje: Error al cargar la configuración: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+StackTrace:    at PLCServicio.Configuracion.ConfiguracionManager.CargarConfiguracion(String rutaArchivo) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Configuracion\configuracionManager.cs:line 46
+   at PLCServicio.Servicios.WorkerPLC.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\Worker.cs:line 55
+InnerException: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+[2026-01-09 13:40:59.149] [INFO] === SERVICIO PLC DETENIENDO ===
+[2026-01-09 13:40:59.150] [INFO] Recursos liberados correctamente
+[2026-01-09 13:41:32.699] [INFO] === SERVICIO PLC INICIANDO ===
+[2026-01-09 13:41:32.731] [INFO] Cargando configuración del servicio...
+[2026-01-09 13:41:32.780] [ERROR] Error crítico en el servicio
+Excepción: InvalidOperationException
+Mensaje: Error al cargar la configuración: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+StackTrace:    at PLCServicio.Configuracion.ConfiguracionManager.CargarConfiguracion(String rutaArchivo) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Configuracion\configuracionManager.cs:line 46
+   at PLCServicio.Servicios.WorkerPLC.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\Worker.cs:line 55
+InnerException: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+[2026-01-09 13:41:32.791] [INFO] === SERVICIO PLC DETENIENDO ===
+[2026-01-09 13:41:32.792] [INFO] Recursos liberados correctamente
+[2026-01-09 13:42:02.781] [ERROR] Error crítico al iniciar servicio
+Excepción: AggregateException
+Mensaje: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: PLCServicio.Servicios.GestorLecturas Lifetime: Singleton ImplementationType: PLCServicio.Servicios.GestorLecturas': Unable to resolve service for type 'PLCServicio.Configuracion.ConfiguracionManager' while attempting to activate 'PLCServicio.Servicios.GestorLecturas'.)
+StackTrace:    at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.InitializeServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at PLCServicio.Program.Main(String[] args) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Program.cs:line 17
+InnerException: Error while validating the service descriptor 'ServiceType: PLCServicio.Servicios.GestorLecturas Lifetime: Singleton ImplementationType: PLCServicio.Servicios.GestorLecturas': Unable to resolve service for type 'PLCServicio.Configuracion.ConfiguracionManager' while attempting to activate 'PLCServicio.Servicios.GestorLecturas'.
+[2026-01-09 13:42:48.731] [ERROR] Error crítico al iniciar servicio
+Excepción: InvalidOperationException
+Mensaje: Error al cargar la configuración: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+StackTrace:    at PLCServicio.Configuracion.ConfiguracionManager.CargarConfiguracion(String rutaArchivo) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Configuracion\configuracionManager.cs:line 46
+   at PLCServicio.Program.<>c.<CrearHostBuilder>b__1_1(HostBuilderContext hostContext, IServiceCollection services) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Program.cs:line 59
+   at Microsoft.Extensions.Hosting.HostBuilder.InitializeServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at PLCServicio.Program.Main(String[] args) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Program.cs:line 18
+InnerException: The JSON value could not be converted to PLCServicio.Configuracion.MapeoDato. Path: $.MapeosDatos._comentario | LineNumber: 52 | BytePositionInLine: 84.
+[2026-01-09 13:43:15.784] [INFO] === SERVICIO PLC INICIANDO ===
+[2026-01-09 13:43:15.815] [INFO] Cargando configuración del servicio...
+[2026-01-09 13:43:15.816] [INFO] Configuración cargada: 3 PLCs configurados
+[2026-01-09 13:43:15.999] [ERROR] ✗ Error al verificar conexión a BD Local
+Excepción: SqlException
+Mensaje: Login failed for user 'nerdwestNBK2\Hernan.Y'.
+StackTrace:    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at PLCServicio.Servicios.RepositorioDatos.VerificarConexion(String connectionString, String nombreBd) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\respositorioDatos.cs:line 50
+[2026-01-09 13:43:16.002] [INFO] Lector TCP/IP inicializado para PLC1_Extrusora (192.168.0.10:8000)
+[2026-01-09 13:43:16.002] [INFO] Lector TCP/IP inicializado para PLC2_Extrusora (192.168.0.11:8000)
+[2026-01-09 13:43:16.004] [INFO] Gestor de lecturas inicializado correctamente
+[2026-01-09 13:43:16.004] [INFO] Iniciando lectura continua de PLCs...
+[2026-01-09 13:43:16.006] [INFO] Conectando a 2 PLCs...
+[2026-01-09 13:43:16.008] [INFO] Conectando a PLC1_Extrusora (192.168.0.10:8000)...
+[2026-01-09 13:43:16.018] [INFO] Conectando a PLC2_Extrusora (192.168.0.11:8000)...
+[2026-01-09 13:43:21.019] [ERROR] Error al conectar con PLC1_Extrusora
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con PLC1_Extrusora
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:43:21.022] [WARN] Reintentando conexión a PLC1_Extrusora (1/3)...
+[2026-01-09 13:43:21.022] [ERROR] Error al conectar con PLC2_Extrusora
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con PLC2_Extrusora
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:43:21.024] [WARN] Reintentando conexión a PLC2_Extrusora (1/3)...
+[2026-01-09 13:43:31.024] [INFO] Conectando a PLC1_Extrusora (192.168.0.10:8000)...
+[2026-01-09 13:43:31.026] [INFO] Conectando a PLC2_Extrusora (192.168.0.11:8000)...
+[2026-01-09 13:43:36.034] [ERROR] Error al conectar con PLC1_Extrusora
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con PLC1_Extrusora
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:43:36.034] [ERROR] Error al conectar con PLC2_Extrusora
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con PLC2_Extrusora
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:43:36.036] [WARN] Reintentando conexión a PLC1_Extrusora (2/3)...
+[2026-01-09 13:43:36.038] [WARN] Reintentando conexión a PLC2_Extrusora (2/3)...
+[2026-01-09 13:43:37.958] [INFO] === SERVICIO PLC DETENIENDO ===
+[2026-01-09 13:43:37.959] [INFO] Liberando recursos del Gestor de Lecturas...
+[2026-01-09 13:43:37.961] [INFO] Repositorio de datos liberado
+[2026-01-09 13:43:37.962] [INFO] Recursos liberados correctamente
+[2026-01-09 13:43:37.964] [INFO] Servicio detenido por solicitud del usuario
+[2026-01-09 13:45:19.246] [INFO] === SERVICIO PLC INICIANDO ===
+[2026-01-09 13:45:19.274] [INFO] Cargando configuración del servicio...
+[2026-01-09 13:45:19.275] [INFO] Configuración cargada: 3 PLCs configurados
+[2026-01-09 13:45:19.433] [ERROR] ✗ Error al verificar conexión a BD Local
+Excepción: SqlException
+Mensaje: Login failed for user 'nerdwestNBK2\Hernan.Y'.
+StackTrace:    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at PLCServicio.Servicios.RepositorioDatos.VerificarConexion(String connectionString, String nombreBd) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\respositorioDatos.cs:line 50
+[2026-01-09 13:45:19.436] [INFO] Lector TCP/IP inicializado para Extrusora 1 (192.168.200.30:8000)
+[2026-01-09 13:45:19.436] [INFO] Lector TCP/IP inicializado para Extrusora 2 (192.168.200.31:8000)
+[2026-01-09 13:45:19.437] [INFO] Gestor de lecturas inicializado correctamente
+[2026-01-09 13:45:19.438] [INFO] Iniciando lectura continua de PLCs...
+[2026-01-09 13:45:19.440] [INFO] Conectando a 2 PLCs...
+[2026-01-09 13:45:19.443] [INFO] Conectando a Extrusora 1 (192.168.200.30:8000)...
+[2026-01-09 13:45:19.452] [INFO] Conectando a Extrusora 2 (192.168.200.31:8000)...
+[2026-01-09 13:45:24.463] [ERROR] Error al conectar con Extrusora 1
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con Extrusora 1
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:45:24.466] [WARN] Reintentando conexión a Extrusora 1 (1/3)...
+[2026-01-09 13:45:34.477] [INFO] Conectando a Extrusora 1 (192.168.200.30:8000)...
+[2026-01-09 13:45:39.483] [ERROR] Error al conectar con Extrusora 1
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con Extrusora 1
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:45:39.485] [WARN] Reintentando conexión a Extrusora 1 (2/3)...
+[2026-01-09 13:45:49.497] [INFO] Conectando a Extrusora 1 (192.168.200.30:8000)...
+[2026-01-09 13:45:54.509] [ERROR] Error al conectar con Extrusora 1
+Excepción: TimeoutException
+Mensaje: Timeout al conectar con Extrusora 1
+StackTrace:    at PLCServicio.Servicios.LectorPlc.ConectarAsync(CancellationToken cancellationToken) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\lectorPLC.cs:line 68
+[2026-01-09 13:45:54.511] [ERROR] No se pudo conectar a Extrusora 1 después de 3 intentos
+[2026-01-09 13:45:54.512] [INFO] PLCs conectados: 1/2
+[2026-01-09 13:45:54.863] [ERROR] ✗ Error al verificar conexión a BD Local
+Excepción: SqlException
+Mensaje: Login failed for user 'nerdwestNBK2\Hernan.Y'.
+StackTrace:    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at PLCServicio.Servicios.RepositorioDatos.VerificarConexion(String connectionString, String nombreBd) in C:\Users\Hernan.Y\Desktop\PLC\plcServicio\plcServicio\Servicios\respositorioDatos.cs:line 50
+[2026-01-09 13:46:48.158] [INFO] === SERVICIO PLC DETENIENDO ===
+[2026-01-09 13:46:48.159] [INFO] Liberando recursos del Gestor de Lecturas...
+[2026-01-09 13:46:48.162] [INFO] Repositorio de datos liberado
+[2026-01-09 13:46:48.163] [INFO] Recursos liberados correctamente

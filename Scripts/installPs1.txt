@@ -1,0 +1,104 @@
+# Script de instalación del Servicio PLC
+# PowerShell - Ejecutar como Administrador
+
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host " INSTALADOR - SERVICIO PLC" -ForegroundColor Cyan
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host ""
+
+# Verificar permisos de administrador
+if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Host "[ERROR] Este script debe ejecutarse como Administrador" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Haz clic derecho sobre el archivo y selecciona 'Ejecutar como administrador'" -ForegroundColor Yellow
+    Write-Host ""
+    Read-Host "Presiona Enter para salir"
+    exit 1
+}
+
+# Paso 1: Verificar .NET
+Write-Host "[1/5] Verificando .NET 8.0..." -ForegroundColor Yellow
+try {
+    $dotnetVersion = dotnet --version
+    Write-Host "      OK - .NET $dotnetVersion instalado" -ForegroundColor Green
+} catch {
+    Write-Host "[ERROR] .NET 8.0 no está instalado" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Descarga e instala .NET 8.0 desde:" -ForegroundColor Yellow
+    Write-Host "https://dotnet.microsoft.com/download/dotnet/8.0" -ForegroundColor Cyan
+    Write-Host ""
+    Read-Host "Presiona Enter para salir"
+    exit 1
+}
+Write-Host ""
+
+# Paso 2: Compilar proyecto
+Write-Host "[2/5] Compilando proyecto en modo Release..." -ForegroundColor Yellow
+Set-Location ..
+$buildResult = dotnet publish -c Release -o publish 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[ERROR] Error al compilar el proyecto" -ForegroundColor Red
+    Write-Host $buildResult
+    Read-Host "Presiona Enter para salir"
+    exit 1
+}
+Write-Host "      OK - Proyecto compilado" -ForegroundColor Green
+Write-Host ""
+
+# Paso 3: Detener servicio si existe
+Write-Host "[3/5] Deteniendo servicio si existe..." -ForegroundColor Yellow
+$service = Get-Service -Name "ServicioPLC" -ErrorAction SilentlyContinue
+if ($service) {
+    if ($service.Status -eq "Running") {
+        Stop-Service -Name "ServicioPLC" -Force
+        Start-Sleep -Seconds 2
+        Write-Host "      OK - Servicio detenido" -ForegroundColor Green
+    } else {
+        Write-Host "      OK - Servicio ya estaba detenido" -ForegroundColor Green
+    }
+} else {
+    Write-Host "      OK - Servicio no existe (instalación nueva)" -ForegroundColor Green
+}
+Write-Host ""
+
+# Paso 4: Instalar servicio
+Write-Host "[4/5] Instalando servicio..." -ForegroundColor Yellow
+Set-Location publish
+$installResult = .\ProyectoServicioPLC.exe /install 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[ERROR] Error al instalar el servicio" -ForegroundColor Red
+    Write-Host $installResult
+    Read-Host "Presiona Enter para salir"
+    exit 1
+}
+Write-Host ""
+
+# Paso 5: Iniciar servicio
+Write-Host "[5/5] Iniciando servicio..." -ForegroundColor Yellow
+Start-Sleep -Seconds 2
+try {
+    Start-Service -Name "ServicioPLC"
+    Write-Host "      OK - Servicio iniciado correctamente" -ForegroundColor Green
+} catch {
+    Write-Host "[ADVERTENCIA] El servicio se instaló pero no pudo iniciarse" -ForegroundColor Yellow
+    Write-Host "              Verifica los logs en la carpeta Logs/" -ForegroundColor Yellow
+}
+Write-Host ""
+
+# Resumen
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host " INSTALACION COMPLETADA" -ForegroundColor Cyan
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "El servicio 'ServicioPLC' está instalado" -ForegroundColor Green
+Write-Host ""
+Write-Host "Comandos útiles:" -ForegroundColor White
+Write-Host "  - Ver estado:  Get-Service ServicioPLC" -ForegroundColor Gray
+Write-Host "  - Detener:     Stop-Service ServicioPLC" -ForegroundColor Gray
+Write-Host "  - Iniciar:     Start-Service ServicioPLC" -ForegroundColor Gray
+Write-Host "  - Logs:        .\Logs\servicio_plc.log" -ForegroundColor Gray
+Write-Host ""
+Write-Host "Para desinstalar, ejecuta: Desinstalar.ps1" -ForegroundColor Yellow
+Write-Host ""
+
+Read-Host "Presiona Enter para salir"
